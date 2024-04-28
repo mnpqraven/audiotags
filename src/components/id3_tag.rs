@@ -109,6 +109,11 @@ impl AudioTagEdit for Id3v2Tag {
     fn date(&self) -> Option<Timestamp> {
         self.inner.date_recorded()
     }
+    fn date_raw(&self) -> Option<&str> {
+        self.inner
+            .get("TDRC")
+            .and_then(|frame| frame.content().text())
+    }
     fn set_date(&mut self, timestamp: Timestamp) {
         self.inner.set_date_recorded(timestamp)
     }

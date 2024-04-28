@@ -33,6 +33,7 @@ pub trait AudioTagEdit: AudioTagConfig {
     }
 
     fn date(&self) -> Option<Timestamp>;
+    fn date_raw(&self) -> Option<&str>;
     fn set_date(&mut self, date: Timestamp);
     fn remove_date(&mut self);
 

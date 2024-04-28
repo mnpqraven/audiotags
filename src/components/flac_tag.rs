@@ -117,6 +117,13 @@ impl AudioTagEdit for FlacTag {
             None
         }
     }
+    fn date_raw(&self) -> Option<&str> {
+        if let Some(timestamp_raw) = self.get_first("DATE") {
+            Some(timestamp_raw)
+        } else {
+            None
+        }
+    }
     fn set_date(&mut self, date: Timestamp) {
         self.set_first("DATE", &date.to_string());
     }

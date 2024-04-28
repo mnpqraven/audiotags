@@ -148,6 +148,9 @@ impl AudioTagEdit for Mp4Tag {
             None
         }
     }
+    fn date_raw(&self) -> Option<&str> {
+        self.inner.year()
+    }
     fn set_date(&mut self, date: Timestamp) {
         self.inner.set_year(date.to_string())
     }
